@@ -17,7 +17,7 @@ def main():
                 print(" ".join(args))
 
             case default:
-                print(f"Command not found: {command}")
+                print(f"{command}: command not found")
                 
     return
 
