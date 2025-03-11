@@ -11,14 +11,15 @@ def main():
         match command:
             case "exit 0":
                 sys.exit(0)
+                break
 
             case "echo":
                 print(" ".join(args))
 
             case _:
-                print(f"{command}: command not found")
-
-    return
+                print(f"Command not found: {command}")
+                
+    return 0
 
 
 if __name__ == "__main__":
