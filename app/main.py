@@ -16,10 +16,10 @@ def main():
             case "echo":
                 print(" ".join(args))
 
-            case _:
+            case default:
                 print(f"Command not found: {command}")
                 
-    return 0
+    return
 
 
 if __name__ == "__main__":
