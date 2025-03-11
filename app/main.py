@@ -9,15 +9,14 @@ def main():
         command, *args = command.split()
 
         match command:
-            case "exit 0":
-                sys.exit(0)
+            case "exit":
                 break
-
+            
             case "echo":
                 print(" ".join(args))
 
             case default:
-                print(f"{command}: command not found")
+                sys.stdout.write(f"{command}: command not found\n")
                 
     return
 
