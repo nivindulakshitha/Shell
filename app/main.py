@@ -31,7 +31,7 @@ def main():
             case "pwd":
                 print(f"{os.getcwd()}")
             case _:
-                print(os.path.exists(command[0]))
+                print(os.path.exists(command[0].strip()))
                 if os.path.exists(command[0]):
                     os.system(" ".join(command))
                 else:
