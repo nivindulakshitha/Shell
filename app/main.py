@@ -1,7 +1,7 @@
 import sys
 import os
 def main():
-    commands = {"exit", "echo", "type"}
+    commands = {"exit", "echo", "type", "pwd"}
     while True:
         sys.stdout.write("$ ")
         sys.stdout.flush()
