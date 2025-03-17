@@ -7,12 +7,12 @@ def main():
         sys.stdout.flush()
         # Wait for user input
         command = input().split()
-        # if command[0] not in commands:
-        #     print(f"${command[0]}: command not found")
-        # elif command[0] == "exit" and command[1] == "0":
-        #     sys.exit(0)
-        # elif command[0] == "echo":
-        #     print(" ".join(command[1:]))
+        if command[0] not in commands:
+            print(f"${command[0]}: command not found")
+        elif command[0] == "exit" and command[1] == "0":
+            sys.exit(0)
+        elif command[0] == "echo":
+            print(" ".join(command[1:]))
         match command[0]:
             case "exit":
                 if command[1] == "0":
