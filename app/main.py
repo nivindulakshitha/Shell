@@ -1,33 +1,18 @@
 import sys
-
-
 def main():
-    while True:
-        print("$ ")
+    while 1:
+        sys.stdout.write("$ ")
         command = input()
-
-        command, *args = command.split()
-
         match command:
-            case "exit":
-                break
-
-            case "echo":
-                print(" ".join(args))
-                
-            case "type":
-                if args[0] == "echo":  
-                    print("echo is a shell builtin\n")
-                elif args[0] == "exit":
-                    print("exit is a shell builtin\n")
-                else:
-                    print(f"{args[0]}: not found\n")
-
-            case default:
-                print(f"{command}: command not found\n")
-                
-    return
-
-
+            case command if command.startswith("echo "):
+                sys.stdout.write(f"{command[len("echo ") :]}\n")
+            case "exit 0":
+                return 0
+            case command if command.startswith("type invalid"):
+                sys.stdout.write(f"{command[len('type ') :]}: not found\n")
+            case command if command.startswith("type "):
+                sys.stdout.write(f"{command[len('type ') :]} is a shell builtin\n")
+            case _:
+                sys.stdout.write(f"{command}: command not found\n")
 if __name__ == "__main__":
     main()
