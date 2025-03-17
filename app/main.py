@@ -1,8 +1,10 @@
 import sys
 import os
+
 PATH_SEP = os.pathsep
 PATH = os.environ["PATH"]
 BUILTINS = {"exit": "builtin", "type": "builtin", "echo": "builtin"}
+
 def parse_path(path):
     path = path.split(PATH_SEP)
     path = [current_path for current_path in path if current_path]
@@ -16,6 +18,7 @@ def parse_path(path):
         for file in files:
             if file not in BUILTINS:
                 BUILTINS[file] = os.path.join(current_path, file)
+
 def main():
     parse_path(PATH)
     while True:
@@ -42,5 +45,6 @@ def main():
                 os.system(f"{command} {' '.join(params)}")
             else:
                 print(f"{command}: command not found")
+
 if __name__ == "__main__":
     main()
